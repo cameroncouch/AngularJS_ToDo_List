@@ -13,17 +13,22 @@ main {
     background-color: #EEE;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     width: 300px;
-    height: 300px;
+    min-height: 300px;
+    height: max-content;
     border-radius: 5px;
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
+}
+.titleholder {
+    margin-bottom: 5px;
 }
 input {
     font-size: 12px;
     border-radius: 5px;
     border: 1px solid #bbb;
     padding: 5px;
+    margin-bottom: 5px;
 }
 p {
     display: inline;
@@ -40,6 +45,16 @@ main p {
     margin: 0;
     font-size: 12px;
     display: block;
+}
+.empty {
+    font-style: italic;
+}
+ol {
+    padding-left: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: relative;
+    font-size: 12px;
 }
 li {
     padding-bottom: 5px;
@@ -59,24 +74,34 @@ li p {
     padding: 5px;
     border-radius: 5px;
 }
-ol {
-    padding-left: 20px;
-    margin-top: 0;
-    margin-bottom: 0;
-    position: relative;
-    font-size: 12px;
-}
+
 .material-icons.md-18 { 
     font-size: 18px; 
     position: absolute;
     right: 8px;
+    margin-left: 5px;
+}
+.material-icons.md-18:hover {
+    color: #ff0000;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 75px;
 }
 .bigbutton {
     font-size: 10px;
     color:#EEE;
     background-color:#ff69b4;
     border-radius: 5px;
+    box-shadow: 0px 2px 1px 0px #d1448b;
     padding: 10px 0px 10px 0px;
     border-radius: 5px;
     border: none;
+}
+.bigbutton:active {
+     transform: translateY(1px);
+     background-color: #d1448b;
+     box-shadow: none;
 }

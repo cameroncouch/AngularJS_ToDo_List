@@ -10,20 +10,25 @@
 </head>
 <body>
     <main ng-controller="TodoController as $ctrl">
-        <p class="bigp">TODO List</p>
-        <p>A place to store the things you have to do!</p>
-        <input type="text" placeholder="Filter your to-dos">
+        <section class="titleholder">
+            <p class="bigp">TODO List</p>
+            <p>A place to store the things you have to do!</p>
+        </section>
+
+        <input maxlength="35" ng-model="searchText" type="text" placeholder="Filter your to-dos">
         
         <ol>
-            <li ng-repeat="todo in $ctrl.tasks">
-                <button class="lilbuttons" ng-if="!todo.completed">Complete</button>
-                <p ng-class="{completed: todo.completed}">{{todo.task}}</p>
-                <i class="material-icons md-18">close</i>
+            <p class="empty" ng-if="$ctrl.tasks.length == 0">All caught up? Keep busy, add more to-dos!</p>
+            <li ng-repeat="todo in $ctrl.tasks | filter: searchText">
+                <button ng-click="$ctrl.completeTask(todo)"class="lilbuttons" ng-if="!todo.completed">Complete</button>
+                <p contenteditable="true" ng-class="{completed: todo.completed}">{{todo.task}}</p>
+                <i ng-click="$ctrl.removeTask($index)" class="material-icons md-18">close</i>
             </li>
         </ol>
-
-        <input type="text" placeholder="Add your to-dos">
-        <button class="bigbutton">Add</button>
+        <form ng-submit="$ctrl.addTask($ctrl.newTodo)">
+            <input maxlength="35" type="text" placeholder="Add your to-dos, Click them to edit!" ng-model="$ctrl.newTodo.task">
+            <button class="bigbutton" ng-disabled="!$ctrl.newTodo.task">Add</button>
+        </form>
     </main>
 
 
