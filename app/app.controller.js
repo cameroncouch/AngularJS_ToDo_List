@@ -4,7 +4,7 @@
         const vm = this; //always do this!
         vm.tasks = [
             {task: "Incomplete to-dos have a button!", completed: false},
-            {task: "Completed to-dos have a strikethrough!", completed: true}
+            {task: "Completed to-dos have a strike-through!", completed: true}
         ];
         vm.addTask = function(newTask) {
             vm.tasks.push(angular.copy(newTask));
