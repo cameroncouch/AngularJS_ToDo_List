@@ -3,10 +3,8 @@
     function TodoController() {
         const vm = this; //always do this!
         vm.tasks = [
-            {task: "Study Angular", completed: false},
-            {task: "Print study guide", completed: false},
-            {task: "Hang out with Kristen", completed: true},
-            {task: "Pet the cats", completed: true}
+            {task: "Incomplete to-dos have a button!", completed: false},
+            {task: "Completed to-dos have a strikethrough!", completed: true}
         ];
         vm.addTask = function(newTask) {
             vm.tasks.push(angular.copy(newTask));

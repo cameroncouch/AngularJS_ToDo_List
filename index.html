@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="todoApp">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <title>To Do</title>
 </head>
+
 <body>
     <main ng-controller="TodoController as $ctrl">
         <section class="titleholder">
@@ -15,26 +17,28 @@
             <p>A place to store the things you have to do!</p>
         </section>
 
-        <input maxlength="35" ng-model="searchText" type="text" placeholder="Filter your to-dos">
-        
+        <input maxlength="25" ng-model="searchText" type="text" placeholder="Filter your to-dos">
+
         <ol>
             <p class="empty" ng-if="$ctrl.tasks.length == 0">All caught up? Keep busy, add more to-dos!</p>
             <li ng-repeat="todo in $ctrl.tasks | filter: searchText">
-                <button ng-click="$ctrl.completeTask(todo)"class="lilbuttons" ng-if="!todo.completed">Complete</button>
+                <button ng-click="$ctrl.completeTask(todo)" class="lilbuttons" ng-if="!todo.completed">Complete</button>
                 <p contenteditable="true" ng-class="{completed: todo.completed}">{{todo.task}}</p>
                 <i ng-click="$ctrl.removeTask($index)" class="material-icons md-18">close</i>
             </li>
         </ol>
         <form ng-submit="$ctrl.addTask($ctrl.newTodo)">
-            <input maxlength="35" type="text" placeholder="Add your to-dos, Click them to edit!" ng-model="$ctrl.newTodo.task">
+            <input maxlength="25" type="text" placeholder="Add your to-dos, Click them to edit!"
+                ng-model="$ctrl.newTodo.task">
             <button class="bigbutton" ng-disabled="!$ctrl.newTodo.task">Add</button>
         </form>
     </main>
 
 
-<!--CODE GOES ABOVE HERE  -->
-<script src="https://code.angularjs.org/1.6.5/angular.js"></script>
-<script src="app/app.module.js"></script>
-<script src="app/app.controller.js"></script>
+    <!--CODE GOES ABOVE HERE  -->
+    <script src="https://code.angularjs.org/1.6.5/angular.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.controller.js"></script>
 </body>
+
 </html>
